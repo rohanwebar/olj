@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.arorvr.com/html/AugmentedReality/VirtualTour/3D/ar.html?virtualtourid=11523b7b-c100-4be7-9f9f-6fc8b7b05057 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 May 2024 04:25:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>ARorVR</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="../../../../../cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../../../../../aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="../../../../../cdn.jsdelivr.net/npm/mind-ar%401.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <link
+  rel="stylesheet"
+  href="../../../../../cdn.jsdelivr.net/npm/swiper%4010/swiper-bundle.min.css"
+/>
+<script src="../../../../../cdn.jsdelivr.net/npm/swiper%4010/swiper-bundle.min.js"></script>
+<script src="../../../jsfiles/Outputs/outputscommonjs.js"></script>
+    <script src="../../../jsfiles/Outputs/MarketingModule/output_vt3dtopjsfile.js"></script>
+    <style>
+      .thedomoverlay{
+
+        position:absolute;
+        z-index:1000;
+        width:100%;
+      }
+        .overlay-footer {
+              position: absolute;
+              bottom: 0px;
+            }
+      
+        .overlay-sideoptions {
+              z-index: 9999;
+              position: absolute;
+              right: 5px;
+              top: 20px;
+              display: inline-block;
+            }
+      
+        .overlay-logo {
+              position: absolute;
+              inset: 0 0 auto 0;
+              display:flex;
+              width:100%;
+              flex-direction:column;
+            }
+      
+        .contact-list{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-wrap: wrap;
+                max-width: 100%;
+                margin:0 auto;
+              
+              }
+        @media only screen and (max-width: 800px){
+                .contact-list{
+                  display: flex;
+                  justify-content: center;
+                  flex-direction: column;
+                  flex-wrap: wrap;
+                  max-width: 100%;
+                  margin:0 auto;
+                }
+              }
+
+          .titledescription{
+                max-width:75%;
+                width:fit-content;
+                background:rgba(97, 96, 96, 0.327);
+                max-height: 11vh;
+                overflow-y: scroll;
+                padding: 6px 20px 6px 6px;
+                color:rgba(255,255,255,1);
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                border-radius: 3%;
+                margin: 5px 5px 5px -5px;
+                box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                      0px 0px 10px -1px rgba(255,255,255,0.7);
+                border: 1px solid rgba(0,0,0,0.09);
+                transition: transform 0.5s;
+                backdrop-filter: blur(2rem);
+              } 
+         .icon-link{
+                display: flex;
+                background:rgba(97, 96, 96, 0.227);
+                padding:4px;
+                color:rgba(255,255,255,1);
+                height: 20px; 
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+                border-radius: 10%;
+                margin: 5px 5px;
+                box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+                      0px 0px 10px -1px rgba(255,255,255,0.7);
+                border: 1px solid rgba(0,0,0,0.09);
+                transition: transform 0.5s;
+                backdrop-filter: blur(2rem);
+              } 
+      
+          .icon-link:hover{
+                box-shadow: inset 4px 4px 6px -1px rgba(0, 0,0, 0.2),
+                      inset 4px 4px 6px -1px  rgba(255,255,255,0.7),
+                      -0.5px -0.5px 0px  rgba(255, 255, 255, 1),
+                      0.5px 0.5px 0px rgba(0,0,0,0.15),
+                      0px 12px 10px -10px rgba(0,0,0,0.05);
+                transform: translateY(2px);
+              }
+          .icon-link:hover .cont-icon{
+                transform: scale(0.95);
+              }
+          .icon-link:hover .fa-facebook{
+                color: #4267b2;
+              }
+      
+          .cont-icon{
+                color: rgb(255, 250, 250);
+                font-size: 25px;
+                transition: transform 0.5s;
+              }
+      
+          .icon-link:hover .cont-icon{
+                transform: scale(0.95);
+              }
+      
+          .logoimage{
+              max-width: 200px;
+            }
+          
+          .thetitleofvirtualtourclass{
+            margin: 0px 0px 0px 10px;
+            color: rgb(255, 250, 250);
+          }
+
+          .swiper {
+            width: 600px;
+            height: 300px;
+          }
+
+          .swiper-container {
+            width: 100%;
+            position: absolute;
+          }
+    
+          .swiper-slide {
+            background-position: start;
+            background-size: center;
+            width: 320px;
+            background-color: rgba(255,255,255,0.4);
+            backdrop-filter: blur(2rem);
+            overflow: hidden;
+            border-radius: 8px;
+            border: solid rgb(127, 124, 124) 3px;
+          }
+
+          .swiper-slide-active {
+            border: solid rgb(0, 0, 0) 3px;
+          }
+
+          .swiper-slide-active .picture{
+            background:linear-gradient(360deg, black, transparent)
+          }
+
+          
+    
+          .picture {
+            display:flex;
+            width: 320px;
+            height: 320px;
+            padding:1px;
+            align-items: center;
+            overflow: hidden;
+            justify-content: center;
+            
+          }
+          .picture img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: contain;
+            object-fit: contain;
+          }
+    
+          .detail {
+            padding: 25px 20px;
+            font-weight: 600;
+            text-align: center;
+            font-family: 'Poppins';
+            max-height:80px;
+            word-wrap: break-word;
+          }
+          .detail h3 {
+            margin: 0;
+            font-size: 20px;
+            word-wrap: break-word;
+            
+          }
+          .detail span {
+            display: block;
+            font-size: 16px;
+            color: #f44336;
+          }
+          
+    </style>
+
+    <style>
+  
+      #example-scanning-overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: transparent;
+	z-index: 2;
+      }
+      @media (min-aspect-ratio: 1/1) {
+	#example-scanning-overlay .inner {
+	  width: 50vh;
+	  height: 50vh;
+	}
+      }
+      @media (max-aspect-ratio: 1/1) {
+	#example-scanning-overlay .inner {
+	  width: 80vw;
+	  height: 80vw;
+	}
+      }
+
+      #example-scanning-overlay .inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	background:
+	  linear-gradient(to right, white 10px, transparent 10px) 0 0,
+	  linear-gradient(to right, white 10px, transparent 10px) 0 100%,
+	  linear-gradient(to left, white 10px, transparent 10px) 100% 0,
+	  linear-gradient(to left, white 10px, transparent 10px) 100% 100%,
+	  linear-gradient(to bottom, white 10px, transparent 10px) 0 0,
+	  linear-gradient(to bottom, white 10px, transparent 10px) 100% 0,
+	  linear-gradient(to top, white 10px, transparent 10px) 0 100%,
+	  linear-gradient(to top, white 10px, transparent 10px) 100% 100%;
+	background-repeat: no-repeat;
+	background-size: 40px 40px;
+      }
+
+      #example-scanning-overlay.hidden {
+	display: none;
+      }
+
+      #example-scanning-overlay img {
+	opacity: 0.6;
+	width: 90%;
+	align-self: center;
+      }
+
+      #example-scanning-overlay .inner .scanline {
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	background: white;
+	animation: move 2s linear infinite;
+      }
+      @keyframes move {
+	0%, 100% { top: 0% }
+	50% { top: calc(100% - 10px) }
+      }
+
+
+      .middlecontainer {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .centered-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .rotate {
+        animation: rotation 15s;
+      }
+      .linear {
+        animation-timing-function: linear;
+      }
+      
+      .infinite {
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+    
+  </style>
+
+
+  <script>
+    var modelLoaded = false; 
+
+   
+
+
+    AFRAME.registerComponent('the3dloadedmodal', {
+      init: function () {
+        var el = this.el;
+        // Flag to track if the model is loaded
+    
+        // Function to reset the modelLoaded flag
+        function resetModelLoaded() {
+          modelLoaded = false;
+        }
+    
+        // Listen for the 'model-loaded' event
+        el.addEventListener('model-loaded', function () {
+          modelLoaded = true; // Set the flag to true when the model is loaded
+          document.getElementById('loaderring').style.display='none'
+        });
+    
+        // Listen for changes in the 'src' attribute
+        el.addEventListener('componentchanged', function (evt) {
+          if (evt.detail.name === 'gltf-model' && evt.detail.oldData !== evt.detail.newData) {
+            resetModelLoaded(); // Reset the modelLoaded flag when 'src' changes
+          }
+        });
+    
+        // Listen for changes in the visibility attribute
+        
+      }
+    });
+
+  </script>
+</head>
+<body>
+  <div id="loaderring" class="middlecontainer rotate linear infinite" style="display:none">
+    <img src="../../../indexpage/images/LOGOmin.png" class="centered-image " alt="img" width="450" height="450" style="left:50% ;">
+  </div>
+  <div id="dom-overlay" class="thedomoverlay">
+      
+    <div class="overlay-sideoptions">
+      <div class="contact-list">
+        <a class="icon-link" onclick="opentheexteriorslides()">
+         Exterior  
+        </a>
+
+        <a id="theicontoshowmapsid" class="icon-link theicontoshowmaps" onclick="opentheinteriorslides()">
+          Interior
+        </a>
+
+        <a id="theLinkicon" class="icon-link" onclick="opentheproject()">
+          Project
+        </a>
+
+      </div>
+    </div>
+
+    <div class="overlay-logo">
+      <div id="dom-overlay-logo">
+        <img
+          class="logoimage"
+          src="../../../../../cdn.glitch.global/40d2d3ec-9985-4ac3-83fd-a848e1781b03/Logo(transparent%20bg)4bd6.png?v=1668421053590"
+          alt="Lamp"
+        />
+      </div>
+      <div class="titledescription">
+        <h2 id="thenameofvirtualtour" class="thetitleofvirtualtourclass"></h2>
+        <h4 id="thedescriptionofvirtualtour" class="thetitleofvirtualtourclass"></h4>
+      </div>
+
+      
+
+      <div
+    id="thehidden"
+    style="
+      position: absolute;
+      top: 83vh;
+      opacity: 0;
+      display: none;
+      width: 100%;
+      transition: opacity 600ms ease-in-out;
+    "
+  >
+    <div  id="dom-overlay-nameofproperty">
+      <div id="swipercontainerdiv" class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div id="thesweperslides" class="swiper-wrapper">
+          <!-- Slides -->
+        </div>
+
+
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+            <!-- <div class="swiper-button-prev"></div>  -->
+             <!-- <div class="swiper-button-next"></div> -->
+
+        <!-- If we need scrollbar -->
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+    <div id="example-scanning-overlay" class="">
+      <div class="inner">
+	    <img id="theimagetobescanned" src="../../../indexpage/images/LOGOmin.png">
+      <div class="scanline">
+      </div>
+      </div>
+    </div>
+    <a-scene raycaster="objects: .clickable" cursor="rayOrigin:mouse" hellomoto  color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+        <a-assets>
+      <img id="card" src="../../../../../cdn.jsdelivr.net/gh/hiukim/mind-ar-js%401.2.2/examples/image-tracking/assets/card-example/card.png" />
+      <a-asset-item id="avatarModel" src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+        </a-assets>
+        <a-camera  position="0 0 0" look-controls="enabled: false"></a-camera>
+        <a-entity id="modelPivot"  class="clickable"   mindar-image-target="targetIndex: 0">
+          <a-entity id="modelPivotcard" >
+          <a-gltf-model id="modelPivotmodel"  rotation="0 0 0 " position="0 0 0.1" scale="1 1 1" the3dloadedmodal></a-gltf-model>
+            </a-entity>
+        </a-entity>
+    </a-scene>
+    <script src="../../../jsfiles/Outputs/MarketingModule/output_vt3djsfile.js"></script>
+      
+      <script>
+        document.querySelector('#modelPivot').addEventListener("targetFound", event => {
+          if(modelLoaded == false){
+            document.querySelector('#loaderring').style.display="block"
+          }
+          else{
+            document.querySelector('#loaderring').style.display="none"
+          }
+        });
+      </script>
+      
+</body>
+
+<!-- Mirrored from www.arorvr.com/html/AugmentedReality/VirtualTour/3D/ar.html?virtualtourid=11523b7b-c100-4be7-9f9f-6fc8b7b05057 by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 04 May 2024 04:25:21 GMT -->
+</html>
